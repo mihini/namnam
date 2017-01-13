@@ -1,0 +1,24 @@
+.searchbar-form h1 {
+    font-size: 50px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+input{
+    border: 2px solid pink;
+    height: 50px;
+    width:80%;
+    border-radius: 12px;
+    font-size: 20px;
+}
+
+button{
+    height: 55px;
+    margin-left: 2%;
+    border-radius: 12px;
+    background-color: pink;
+    box-shadow: none;
+    border: none;
+}
+
+
+
