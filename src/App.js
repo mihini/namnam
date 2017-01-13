@@ -27,10 +27,8 @@ class App extends Component {
 
 class Restaurants extends React.Component {
   render() {
-
-  const restaurants = ['Palmyra', 'Hjälmaren', 'Två små svin', 'Nelles'];
-
-    return(
+    const restaurants = ['Palmyra', 'Hjälmaren', 'Två små svin', 'Nelles'];
+      return (
       <div className="result-box">
       <ul>
 {restaurants.map( rest => <li>{rest}</li> )}
