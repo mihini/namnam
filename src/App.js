@@ -17,8 +17,7 @@ class App extends Component {
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
         <h4 className="date">Current time: {now.toTimeString()}</h4>
-        <input></input>
-        <button></button>
+        <Inputbox />
         <Restaurants />
       </div>
     );
@@ -34,6 +33,17 @@ class Restaurants extends React.Component {
 {restaurants.map( rest => <li>{rest}</li> )}
       </ul>
       </div>
+    );
+  }
+}
+
+class Inputbox extends React.Component {
+  render() {
+      return (
+        <div>
+        <input></input>
+        <button></button>
+        </div>
     );
   }
 }

@@ -28,7 +28,8 @@ h2 {
 }
 
 button {
-  padding: 0.75em;
+  padding: 1.75em;
+  border-radius: 5px
 }
 
 button:focus {
