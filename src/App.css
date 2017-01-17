@@ -28,17 +28,30 @@ h2 {
 }
 
 button {
-  padding: 1.75em;
-  border-radius: 5px
+  color: #696969;
+  padding: 20px;
+  cursor: pointer;
+  outline: none;
+  -webkit-border-radius: 5px;
+  -moz-border-radius-: 5px;
+  border-radius: 5px;
 }
 
 button:focus {
   outline: 0.25em solid #dd0;
 }
 
-input, textarea {
-  border: 1px solid;
-  padding: 0.5rem;
+input {
+  color: #696969;
+  border: 1px solid #FFFFFF;
+  padding: 20px;
+  outline: none;
+  width: 70%;
+  focus: none;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
 }
 
 [aria-invalid] {
