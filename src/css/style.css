@@ -23,12 +23,12 @@ button{
 .headertext{
     font-size: 50px;
     color: white;
-    font-family: coiny, regular;
+    font-family: 'Coiny', regular;
     text-shadow: 2px 2px 4px rgba(0, 0, 1, 0.4);
 }
 
 .headertext2{
-    font-family: coiny, regular;
+    font-family: 'Coiny', regular;
     color: white;
     text-shadow: 2px 2px 4px rgba(0, 0, 1, 0.4);
 }
@@ -46,7 +46,8 @@ button{
 }
 
 .footertext{
-    font-size: 12px;
+    font-size: 15px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .progressbox{
@@ -54,5 +55,17 @@ button{
     height: 70%;
     border: 2px solid black;
 }
+
+.progressbar{
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+img{
+    height: 120px;
+    width: auto;
+}
+
+
 
 
