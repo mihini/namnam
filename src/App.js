@@ -4,9 +4,8 @@ import './css/style.css';
 
 
 import Header from './components/Header';
-import Progressbar from './components/Progressbar';
 import Footer from './components/Footer';
-
+import Progressbar from './components/Progressbar';
 
 
 
@@ -15,8 +14,9 @@ class App extends Component {
         return (
             <div className="App">
                 <Header/>
-                <Progressbar/>
+                    <Progressbar/>
                 <Footer/>
+
             </div>
         );
     }
