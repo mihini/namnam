@@ -1,4 +1,6 @@
-class AdressInputForm extends React.Component {
+import React from 'react';
+
+class AddressInputForm extends React.Component {
   render() {
 
       return (
@@ -21,3 +23,5 @@ console.log("click Yes! addressen är: " + address);
 }
 
 }
+
+export default AddressInputForm;
