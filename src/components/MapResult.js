@@ -1,24 +1,24 @@
 import React from 'react';
-import axios from 'axios';
+import GoogleMap from 'google-map-react';
 
 class MapResult extends React.Component{
+  static defaultProps = {
+    center: {lat: 59.334591, lng: 18.063240},
+    zoom: 9,
+    // greatPlaceCoords: {lat: 59.724465, lng: 30.080121}
+  };
 
   render(){
-    axios.get('https://maps.googleapis.com/maps/api/js?key= AIzaSyA0i6CK5P6zWmK9fSIQFTUlgk7KZc3Q-mw&callback=initMap')
-    .then(function(response){
-      console.log(response.data);
-      console.log(response.status);
-    });
-
     return(
-
-      <div ref="map">
-        <p>Map here</p>
-      </div>
-
+      <div style={{height: 400}}>
+        <GoogleMap
+          bootstrapURLKeys={{key: "AIzaSyDZqHvRvCkXXJCw_Jzk9sznTk4YuL7wkxU"}}
+          defaultCenter={this.props.center}
+          defaultZoom={this.props.zoom}
+        />
+    </div>
     )
   }
-
 }
 
-export default MapResult
+export default MapResult;
