@@ -7,8 +7,6 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import TextResult from './components/TextResult';
 import Progressbar from './components/Progressbar';
-
-
 import AddressInputForm from './components/AddressInputForm';
 
 class App extends Component {

@@ -16,12 +16,6 @@ class AddressInputForm extends React.Component {
     );
   }
 
-_handleSearch(event) {
-
-
-  let address = this._address;
-console.log("click Yes! addressen är: " + address);
-}
 
 _getGeoData(event) {
    event.preventDefault();
