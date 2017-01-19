@@ -4,9 +4,10 @@ import './css/style.css';
 
 
 import Header from './components/Header';
-import Progressbar from './components/Progressbar';
 import Footer from './components/Footer';
 import TextResult from './components/TextResult';
+import Progressbar from './components/Progressbar';
+
 
 import AddressInputForm from './components/AddressInputForm';
 
@@ -18,7 +19,9 @@ class App extends Component {
                 <AddressInputForm />
                 <Progressbar/>
                 <TextResult/>
+
                 <Footer/>
+
             </div>
         );
     }
