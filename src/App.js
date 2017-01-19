@@ -8,11 +8,14 @@ import Progressbar from './components/Progressbar';
 import Footer from './components/Footer';
 import TextResult from './components/TextResult';
 
+import AddressInputForm from './components/AddressInputForm';
+
 class App extends Component {
     render() {
         return (
             <div className="App">
                 <Header/>
+                <AddressInputForm />
                 <Progressbar/>
                 <TextResult/>
                 <Footer/>
@@ -20,5 +23,7 @@ class App extends Component {
         );
     }
 }
+
+
 
 export default App;

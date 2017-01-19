@@ -22,3 +22,39 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+
+h2 {
+  text-transform: uppercase;
+}
+
+button {
+  color: #696969;
+  padding: 20px;
+  cursor: pointer;
+  outline: none;
+  -webkit-border-radius: 5px;
+  -moz-border-radius-: 5px;
+  border-radius: 5px;
+}
+
+button:focus {
+  outline: 0.25em solid #dd0;
+}
+
+input {
+  color: #696969;
+  border: 1px solid #FFFFFF;
+  padding: 20px;
+  outline: none;
+  width: 70%;
+  focus: none;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+}
+
+[aria-invalid] {
+  border-color: #c00;
+  padding-right: 1.5rem;
+}
