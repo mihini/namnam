@@ -9,7 +9,7 @@ class Progressbar extends React.Component {
         super(props);
 
         this.state = {
-            progress: 0.96,
+            progress: 1.0,
             text: "Hämtar käk"
         }
 
@@ -19,7 +19,7 @@ class Progressbar extends React.Component {
     render() {
         var options = {
             strokeWidth: 2,
-            duration: 1800
+            duration: 2800
         };
 
 
@@ -30,17 +30,30 @@ class Progressbar extends React.Component {
 
         return (
 
-        <div className="progressbar">
+        <div>
 
-            <Circle
-                progress={this.state.progress}
-                text={this.state.text}
-                options={options}
-                initialAnimate={true}
-                containerStyle={containerStyle}
-                containerClassName={'.progressbar'}
-            />
+            <div className="fork">
+                <img src={require('../images/fork1.svg')} className="forkimg" />
+            </div>
+
+            <div className="progressbar">
+
+                <Circle
+                    progress={this.state.progress}
+                    text={this.state.text}
+                    options={options}
+                    initialAnimate={true}
+                    containerStyle={containerStyle}
+                    containerClassName={'.progressbar'}
+                />
+            </div>
+
+            <div className="kniv">
+                <img src={require('../images/knife1.svg')} className="knivimg" />
+            </div>
+
         </div>
+
         );
     }
 }
