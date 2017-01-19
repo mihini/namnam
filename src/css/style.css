@@ -22,6 +22,15 @@ button{
 
 .headertext{
     font-size: 50px;
+    color: white;
+    font-family: 'Coiny', regular;
+    text-shadow: 2px 2px 4px rgba(0, 0, 1, 0.4);
+}
+
+.headertext2{
+    font-family: 'Coiny', regular;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 1, 0.4);
 }
 
 .headerbox{
@@ -37,7 +46,8 @@ button{
 }
 
 .footertext{
-    font-size: 12px;
+    font-size: 15px;
+    font-family: 'Roboto', sans-serif;
 }
 
 .progressbox{
@@ -45,5 +55,36 @@ button{
     height: 70%;
     border: 2px solid black;
 }
+
+.progressbar{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    display: inline-block;
+    padding-left: 3%;
+    padding-right: 3%;
+}
+
+.pommes{
+    height: 120px;
+    width: auto;
+}
+
+.fork{
+    display: inline-block;
+}
+
+.kniv{
+    display: inline-block;
+}
+
+.forkimg{
+    height: 200px;
+}
+
+.knivimg{
+    height: 200px;
+}
+
+
 
 
