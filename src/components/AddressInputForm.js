@@ -16,7 +16,26 @@ class AddressInputForm extends React.Component {
       console.log(response.data.results[0].geometry.location);// lat och lng obj
     });
 
+    this._getRestaruant();
+
   }
+
+  _getRestaruant(){
+    axios.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json', {
+      params: {
+        key: 'AIzaSyCyYN3NAc4dMKq7PqupmsXkMd__yNYaT5s',
+        location:'59.28669840000001 18.07774165',
+        radius: 1000,
+        type: 'restaurant',
+
+      }
+    }).then(function(response){
+      console.log(response);
+    });
+
+  }
+
+
   render() {
     return(
         <form className="search-form" onSubmit={(e) => this._getGeoUserAddress(e)}>
