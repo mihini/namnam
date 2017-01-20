@@ -12,7 +12,7 @@ class MapResult extends React.Component{
     return(
       <div style={{height: 400}}>
         <GoogleMap
-          bootstrapURLKeys={{key: "AIzaSyDZqHvRvCkXXJCw_Jzk9sznTk4YuL7wkxU"}}
+          bootstrapURLKeys={{key: "AIzaSyCyYN3NAc4dMKq7PqupmsXkMd__yNYaT5s"}}
           defaultCenter={this.props.center}
           defaultZoom={this.props.zoom}
         />

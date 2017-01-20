@@ -24,7 +24,7 @@ class AddressInputForm extends React.Component {
     axios.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json', {
       params: {
         key: 'AIzaSyCyYN3NAc4dMKq7PqupmsXkMd__yNYaT5s',
-        location:'59.28669840000001 18.07774165',
+        location:'59.28669840000001 18.07774165',// use variables from _getGeoUserAddress response
         radius: 1000,
         type: 'restaurant',
 
