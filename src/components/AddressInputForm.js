@@ -2,7 +2,7 @@ import React from 'react';
 import axios from 'axios';
 
 class AddressInputForm extends React.Component {
-  _getGeo(event){
+  _getGeoUserAddress(event){
     event.preventDefault();
     console.log(this.address.value); // addressen som användaren skrivit in.
 
@@ -13,12 +13,13 @@ class AddressInputForm extends React.Component {
       }
     }).then(function(response){
       console.log(response);
+      console.log(response.data.results[0].geometry.location);// lat och lng obj
     });
 
   }
   render() {
     return(
-        <form className="search-form" onSubmit={(e) => this._getGeo(e)}>
+        <form className="search-form" onSubmit={(e) => this._getGeoUserAddress(e)}>
             <label>Namnam hjälper dig att hitta en restaurang i närheten</label>
             <input ref={(input) => this.address = input} type="text" required placeholder="Skriv din adress tex. Sveavägen 83, Stockholm..." />
             <button type="submit">Sök</button>
