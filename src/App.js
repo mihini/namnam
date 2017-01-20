@@ -6,6 +6,7 @@ import './css/style.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Progressbar from './components/Progressbar';
+//import Searchbar from './components/Searchbar';
 
 
 
@@ -14,6 +15,7 @@ class App extends Component {
         return (
             <div className="App">
                 <Header/>
+                    
                     <Progressbar/>
                 <Footer/>
 
