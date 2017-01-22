@@ -13,14 +13,22 @@ class AddressInputForm extends React.Component {
       }
     }).then(function(response){
       console.log(response);
-      console.log(response.data.results[0].geometry.location);// lat och lng obj
+      let addressLat = response.data.results[0].geometry.location.lat;
+      let addressLng = response.data.results[0].geometry.location.lng;
+
+      console.log("lat : " + addressLat); // console.log för bara kontroll nu att den ger vad vi vill ha
+      console.log("lng : " + addressLng);
+
+      let geoCode = [addressLat, addressLng];
+      console.log( geoCode );
+      return geoCode;
     });
 
-    this._getRestaruant();
+    this._getRestaurant();
 
   }
 
-  _getRestaruant(){
+  _getRestaurant(){
     axios.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json', {
       params: {
         key: 'AIzaSyCyYN3NAc4dMKq7PqupmsXkMd__yNYaT5s',
