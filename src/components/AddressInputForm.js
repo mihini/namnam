@@ -6,33 +6,24 @@ class AddressInputForm extends React.Component {
     event.preventDefault();
     console.log(this.address.value); // addressen som användaren skrivit in.
 
+    let location;
     axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
       params: {
         key: 'AIzaSyCyYN3NAc4dMKq7PqupmsXkMd__yNYaT5s',
         address: this.address.value
       }
     }).then(function(response){
-      console.log(response);
-      console.log(response.data.results[0].geometry.location);// lat och lng obj
+      return new Promise((resolve, reject) => {
+        resolve (location =response.data.results[0].geometry.location);
+      });
+
+      // console.log(response);
+      // console.log(response.data.results[0].geometry.location);// lat och lng obj
+
+    }).then(location=>{
+      // console.log(this);
+      this.props.getRestaurant(location);
     });
-
-    this._getRestaruant();
-
-  }
-
-  _getRestaruant(){
-    axios.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json', {
-      params: {
-        key: 'AIzaSyCyYN3NAc4dMKq7PqupmsXkMd__yNYaT5s',
-        location:'59.28669840000001 18.07774165',
-        radius: 1000,
-        type: 'restaurant',
-
-      }
-    }).then(function(response){
-      console.log(response);
-    });
-
   }
 
 
