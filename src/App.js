@@ -11,6 +11,7 @@ import Searchbar from './components/Searchbar';
 import AddressInputForm from './components/AddressInputForm';
 import MapResult from './components/MapResult';
 
+var restaurant;
 
 class App extends Component {
   constructor() {
@@ -31,7 +32,19 @@ class App extends Component {
 
       }
     }).then(function(response){
-      console.log(response);
+        let restaurants = [];
+
+        for (var i=0;i<response.data.results.length;i++){
+            restaurants.push(response.data.results[i]);
+        }
+        //console.log(response);
+
+        restaurant = restaurants[Math.floor(Math.random() * restaurants.length)];
+        console.log(restaurant.name);
+        console.log(restaurant.geometry.location.lat);
+        console.log(restaurant.geometry.location.lng);
+
+        this.props.addRestaurant(restaurant);
     });
   }
 
