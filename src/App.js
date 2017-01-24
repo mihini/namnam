@@ -43,8 +43,7 @@ class App extends Component {
         console.log(restaurant.name);
         console.log(restaurant.geometry.location.lat);
         console.log(restaurant.geometry.location.lng);
-
-        this.props.addRestaurant(restaurant);
+        
     });
   }
 
