@@ -33,7 +33,7 @@ class Progressbar extends React.Component {
         <div>
 
             <div className="fork">
-                <img src={require('../images/fork1.svg')} className="forkimg" />
+                <img src={require('../images/fork1.svg')} className="forkimg"  alt="fork"/>
             </div>
 
             <div className="progressbar">
@@ -49,7 +49,7 @@ class Progressbar extends React.Component {
             </div>
 
             <div className="kniv">
-                <img src={require('../images/knife1.svg')} className="knivimg" />
+                <img src={require('../images/knife1.svg')} className="knivimg" alt="knife" />
             </div>
 
         </div>
