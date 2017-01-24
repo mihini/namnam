@@ -6,41 +6,24 @@ class AddressInputForm extends React.Component {
     event.preventDefault();
     console.log(this.address.value); // addressen som användaren skrivit in.
 
+    var location;
     axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
       params: {
         key: 'AIzaSyCyYN3NAc4dMKq7PqupmsXkMd__yNYaT5s',
         address: this.address.value
       }
     }).then(function(response){
-      console.log(response);
-      let addressLat = response.data.results[0].geometry.location.lat;
-      let addressLng = response.data.results[0].geometry.location.lng;
+      return new Promise((resolve, reject) => {
+        resolve (location =response.data.results[0].geometry.location);
+      });
 
-      console.log("lat : " + addressLat); // console.log för bara kontroll nu att den ger vad vi vill ha
-      console.log("lng : " + addressLng);
+      // console.log(response);
+      // console.log(response.data.results[0].geometry.location);// lat och lng obj
 
-      let geoCode = [addressLat, addressLng];
-      console.log( geoCode );
-      return geoCode;
+    }).then(location=>{
+      // console.log(this);
+      this.props.getRestaurant(location);
     });
-
-    this._getRestaurant();
-
-  }
-
-  _getRestaurant(){
-    axios.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json', {
-      params: {
-        key: 'AIzaSyCyYN3NAc4dMKq7PqupmsXkMd__yNYaT5s',
-        location:'59.28669840000001 18.07774165',// use variables from _getGeoUserAddress response
-        radius: 1000,
-        type: 'restaurant',
-
-      }
-    }).then(function(response){
-      console.log(response);
-    });
-
   }
 
 
@@ -48,11 +31,10 @@ class AddressInputForm extends React.Component {
     return(
         <form className="search-form" onSubmit={(e) => this._getGeoUserAddress(e)}>
             <label>Namnam hjälper dig att hitta en restaurang i närheten</label>
-              <input ref={(input) => this.address = input} type="text" required placeholder="Skriv din adress tex. Sveavägen 83, Stockholm..." />
-              <button type="submit">Sök</button>
-            </form>
-
-    );
+            <input ref={(input) => this.address = input} type="text" required placeholder="Skriv din adress tex. Sveavägen 83, Stockholm..." />
+            <button type="submit">Sök</button>
+        </form>
+    )
 
     //   return (
     //       <form className="input-form" onSubmit={this._getGeo.bind(this)}>
@@ -64,7 +46,6 @@ class AddressInputForm extends React.Component {
     //         </form>
     //
     // );
-
   }
 
 // _handleSearch(event) {
