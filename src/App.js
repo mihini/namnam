@@ -12,22 +12,6 @@ import AddressInputForm from './components/AddressInputForm';
 import MapResult from './components/MapResult';
 
 
-
-class App extends Component {
-    render() {
-        return (
-            <div className="App">
-                <Header/>
-                    
-                    <Progressbar/>
-                <Footer/>
-
-            </div>
-        );
-    }
-    
-
-
 class App extends Component {
   constructor() {
     super();
