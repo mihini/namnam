@@ -23,7 +23,7 @@ class App extends Component {
     axios.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json', {
       params: {
         key: 'AIzaSyCyYN3NAc4dMKq7PqupmsXkMd__yNYaT5s',
-        location: lat+' ' +lng,
+        location: `${lat} ${lng}`,
         radius: 1000,
         type: 'restaurant',
 
@@ -31,7 +31,6 @@ class App extends Component {
     }).then(function(response){
       console.log(response);
     });
-
   }
 
   render() {

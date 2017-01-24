@@ -2,11 +2,12 @@ import React from 'react';
 import axios from 'axios';
 
 class AddressInputForm extends React.Component {
+
   _getGeoUserAddress(event){
     event.preventDefault();
     console.log(this.address.value); // addressen som användaren skrivit in.
 
-    let location;
+    var location;
     axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
       params: {
         key: 'AIzaSyCyYN3NAc4dMKq7PqupmsXkMd__yNYaT5s',
@@ -14,14 +15,14 @@ class AddressInputForm extends React.Component {
       }
     }).then(function(response){
       return new Promise((resolve, reject) => {
-        resolve (location =response.data.results[0].geometry.location);
+        resolve (location = response.data.results[0].geometry.location);
       });
 
       // console.log(response);
       // console.log(response.data.results[0].geometry.location);// lat och lng obj
 
     }).then(location=>{
-      // console.log(this);
+      console.log(location);
       this.props.getRestaurant(location);
     });
   }
