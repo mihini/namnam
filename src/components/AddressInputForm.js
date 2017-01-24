@@ -15,7 +15,7 @@ class AddressInputForm extends React.Component {
       }
     }).then(function(response){
       return new Promise((resolve, reject) => {
-        var results = response.data.results;
+        const results = response.data.results;
         if (results.length > 0){
           resolve(location = results[0].geometry.location);
         } else{
