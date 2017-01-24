@@ -14,15 +14,19 @@ class AddressInputForm extends React.Component {
       }
     }).then(function(response){
       return new Promise((resolve, reject) => {
-        resolve (location =response.data.results[0].geometry.location);
+        const results = response.data.results;
+        if (results.length > 0){
+          resolve(location = results[0].geometry.location);
+        } else{
+          reject('Finns ej restauranger i närheten');
+        }
       });
-
-      // console.log(response);
-      // console.log(response.data.results[0].geometry.location);// lat och lng obj
-
     }).then(location=>{
       // console.log(this);
       this.props.getRestaurant(location);
+    }).catch(err => {
+      alert(err);
+      // console.error(err);
     });
   }
 
