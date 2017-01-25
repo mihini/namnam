@@ -45,28 +45,22 @@ class App extends Component {
     }).then(function(response){
       appComponent.setState({restaurant: appComponent._getRandomRestaurant(response)});
 
-      //
-      //
-      // for (var i=0;i<response.data.results.length;i++){
-      //   restaurants.push(response.data.results[i]);
-      // }
-      // //console.log(response);
-      //
-      // console.log(restaurant.name);
-      // console.log(restaurant.geometry.location.lat);
-      // console.log(restaurant.geometry.location.lng);
     });
   } // när vi har fått tillbaka resultatet så är laddningen klar och då sätter
 
 
   _getRandomRestaurant(response){
-    // console.log('hej');
-    // console.log();
+
     let restaurants = response.data.results;
     // console.log(restaurants);
 
     let restaurantObj = restaurants[Math.floor(Math.random() * restaurants.length)];
     // console.log(restaurantObj);
+
+    this.setState({
+      showResults: !this.state.showResults,
+      showProgressbar: this.state.showResults
+    });
     return restaurantObj;
   }
 
