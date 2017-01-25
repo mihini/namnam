@@ -6,6 +6,7 @@ var Circle = ProgressBar.Circle;
 class Progressbar extends React.Component {
 
     constructor(props){
+          {/* showResults blir props och har värdet false */}
         super(props);
 
         this.state = {
@@ -28,9 +29,23 @@ class Progressbar extends React.Component {
             height: '200px'
         };
 
+        var show = {
+          display: 'block'
+        }
+        
+        var hide = {
+          display: 'none'
+        }
+
+        var showStyle = this.props.showProgressbar ? show : hide;
+
+        {/* använda värdet på props. kolla det och beroende på sant/falskt visa el gömma kan göra det med stil el class */}
+
+
+
         return (
 
-        <div>
+        <div style={showStyle}>
 
             <div className="fork">
                 <img src={require('../images/fork1.svg')} className="forkimg"  alt="fork"/>
