@@ -28,9 +28,11 @@ class Progressbar extends React.Component {
             width: '200px',
             height: '200px'
         };
+
         var show = {
           display: 'block'
         }
+        
         var hide = {
           display: 'none'
         }

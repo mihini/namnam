@@ -5,10 +5,9 @@ import axios from 'axios';
 
 import Header from './components/Header';
 import Footer from './components/Footer';
-import TextResult from './components/TextResult';
-import Progressbar from './components/Progressbar';
 import AddressInputForm from './components/AddressInputForm';
-import MapResult from './components/MapResult';
+import Progressbar from './components/Progressbar';
+import SearchResults from './components/SearchResults';
 
 class App extends Component {
   constructor() {
@@ -18,8 +17,7 @@ class App extends Component {
     // this.getGeoUserAddress = this.getGeoUserAddress.bind(this);
 
       this.state = {
-        showProgressbar:  false,
-        showResults: false
+        showProgressbar:  false
       };
 
 
@@ -29,8 +27,7 @@ class App extends Component {
   _getRestaurant(location) {
 
     this.setState({
-      showProgressbar: !this.state.showProgressbar,
-      showResults: !this.state.showResults
+      showProgressbar: !this.state.showProgressbar
     });
 
 
@@ -56,8 +53,7 @@ class App extends Component {
               <AddressInputForm getRestaurant={this._getRestaurant}/>
               <Progressbar showProgressbar={this.state.showProgressbar}/>
               {/* showResults blir props i själva componenten (progressbar, jag har döpt dom här, skickar med ett värde )*/}
-              <TextResult/>
-              <MapResult/>
+              <SearchResults />
               <Footer/>
 
           </div>
