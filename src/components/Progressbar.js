@@ -32,7 +32,7 @@ class Progressbar extends React.Component {
         var show = {
           display: 'block'
         }
-        
+
         var hide = {
           display: 'none'
         }
