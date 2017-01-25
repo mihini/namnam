@@ -17,7 +17,8 @@ class App extends Component {
     // this.getGeoUserAddress = this.getGeoUserAddress.bind(this);
 
       this.state = {
-        showProgressbar:  false
+        showProgressbar: false,
+        showResults: false
       };
 
 
@@ -31,7 +32,7 @@ class App extends Component {
     });
 
 
-    var lat =location.lat;//data from google api
+    var lat = location.lat;//data from google api
     var lng = location.lng;
     axios.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json', {
       params: {
@@ -52,8 +53,7 @@ class App extends Component {
               <Header/>
               <AddressInputForm getRestaurant={this._getRestaurant}/>
               <Progressbar showProgressbar={this.state.showProgressbar}/>
-              {/* showResults blir props i själva componenten (progressbar, jag har döpt dom här, skickar med ett värde )*/}
-              <SearchResults />
+              <SearchResults showResults={this.state.showResults}/>
               <Footer/>
 
           </div>
