@@ -14,25 +14,25 @@ class App extends Component {
     super();
 
     this._getRestaurant = this._getRestaurant.bind(this);
+    this._getRandomRestaurant = this._getRandomRestaurant.bind(this);
     // this.getGeoUserAddress = this.getGeoUserAddress.bind(this);
 
       this.state = {
         showProgressbar: false,
-        showResults: false
+        showResults: false,
+        restaurant:{}
       };
-
-
   }
 
 
   _getRestaurant(location) {
-
     this.setState({
       showProgressbar: !this.state.showProgressbar
     });
 
 
-    var lat = location.lat;//data from google api
+    const appComponent = this;
+    var lat =location.lat;//data from google api
     var lng = location.lng;
     axios.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json', {
       params: {
@@ -43,9 +43,32 @@ class App extends Component {
 
       }
     }).then(function(response){
-      console.log(response);
+      appComponent.setState({restaurant: appComponent._getRandomRestaurant(response)});
+
+      //
+      //
+      // for (var i=0;i<response.data.results.length;i++){
+      //   restaurants.push(response.data.results[i]);
+      // }
+      // //console.log(response);
+      //
+      // console.log(restaurant.name);
+      // console.log(restaurant.geometry.location.lat);
+      // console.log(restaurant.geometry.location.lng);
     });
   } // när vi har fått tillbaka resultatet så är laddningen klar och då sätter
+
+
+  _getRandomRestaurant(response){
+    // console.log('hej');
+    // console.log();
+    let restaurants = response.data.results;
+    // console.log(restaurants);
+
+    let restaurantObj = restaurants[Math.floor(Math.random() * restaurants.length)];
+    // console.log(restaurantObj);
+    return restaurantObj;
+  }
 
   render() {
       return (
@@ -53,7 +76,10 @@ class App extends Component {
               <Header/>
               <AddressInputForm getRestaurant={this._getRestaurant}/>
               <Progressbar showProgressbar={this.state.showProgressbar}/>
-              <SearchResults showResults={this.state.showResults}/>
+              <SearchResults showResults={this.state.showResults} restaurantObj={this.state.restaurant}/>
+
+              {/* showResults blir props i själva componenten (progressbar, jag har döpt dom här, skickar med ett värde )*/}
+
               <Footer/>
 
           </div>

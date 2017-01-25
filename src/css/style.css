@@ -85,6 +85,17 @@ button{
     height: 200px;
 }
 
+.marker{
+  position: absolute;
+  width: 15px;
+  height: 15px;
+  left: calc(-15px / 2);
+  top: calc(-15px / 2);
 
-
-
+  border: 3px solid #f44336;
+  border-radius: 40px;
+  background-color: none;
+  text-align: center;
+  color: #3f51b5;
+  padding: 4px;
+}

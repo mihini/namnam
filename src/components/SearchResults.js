@@ -19,8 +19,9 @@ class SearchResults extends React.Component{
     var showStyle = this.props.showResults ? show : hide;
 
     return(
+
       <div className="results" style={showStyle}>
-        <TextResult />
+        <TextResult restaurantObj={this.props.restaurantObj} />
         <MapResult />
       </div>
     )
