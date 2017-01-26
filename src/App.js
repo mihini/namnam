@@ -58,10 +58,11 @@ class App extends Component {
     // console.log(restaurantObj);
 
     this.setState({
-      showProgressbar: !this.state.showProgressbar,
-      showResults: !this.state.showResults
-      //showResults: this.state.showResults &&  ? true : false;
-    });
+      showProgressbar: false,
+      showResults: true
+    }
+
+  );
     return restaurantObj;
   }
 

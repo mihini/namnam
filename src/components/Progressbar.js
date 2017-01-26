@@ -38,7 +38,7 @@ class Progressbar extends React.Component {
 
         var showStyle = this.props.showProgressbar ? show : hide;
 
-      // använda värdet på props. kolla det och beroende på sant/falskt visa el gömma kan göra det med stil el class
+        //använda värdet på props. kolla det och beroende på sant/falskt visa el gömma kan göra det med stil el class */}
 
 
 
