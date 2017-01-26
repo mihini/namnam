@@ -22,7 +22,6 @@ class App extends Component {
         showProgressbar: false,
         showResults: false,
         restaurant:{},
-        restaurantLocation:{}
       };
   }
 
@@ -48,7 +47,6 @@ class App extends Component {
       appComponent.setState({
         dataLoaded:true,
         restaurant: appComponent._getRandomRestaurant(response)
-        // restaurantLocation:rest.geometry.location
       });
 
     });
