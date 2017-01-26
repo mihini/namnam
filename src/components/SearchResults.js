@@ -23,8 +23,8 @@ class SearchResults extends React.Component{
     return(
 
       <div className="results" style={showStyle}>
-        <TextResult restaurantObj={this.props.restaurantObj} />
-        <MapResult />
+        <TextResult restaurantObj={this.props.restaurantObj}/>
+        <MapResult restaurantObj={this.props.restaurantObj}/>
       </div>
     )
   }

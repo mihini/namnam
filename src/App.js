@@ -18,9 +18,10 @@ class App extends Component {
     // this.getGeoUserAddress = this.getGeoUserAddress.bind(this);
 
       this.state = {
+        dataLoaded: false, // to check if the restaurantObj is loaded.
         showProgressbar: false,
         showResults: false,
-        restaurant:{}
+        restaurant:{},
       };
   }
 
@@ -43,7 +44,10 @@ class App extends Component {
 
       }
     }).then(function(response){
-      appComponent.setState({restaurant: appComponent._getRandomRestaurant(response)});
+      appComponent.setState({
+        dataLoaded:true,
+        restaurant: appComponent._getRandomRestaurant(response)
+      });
 
     });
   } // när vi har fått tillbaka resultatet så är laddningen klar och då sätter
@@ -55,14 +59,13 @@ class App extends Component {
     // console.log(restaurants);
 
     let restaurantObj = restaurants[Math.floor(Math.random() * restaurants.length)];
-    // console.log(restaurantObj);
+    //console.log(restaurantObj);
 
     this.setState({
       showProgressbar: false,
       showResults: true
-    }
-
-  );
+      //showResults: this.state.showResults &&  ? true : false;
+    });
     return restaurantObj;
   }
 
@@ -72,7 +75,8 @@ class App extends Component {
               <Header/>
               <AddressInputForm getRestaurant={this._getRestaurant}/>
               <Progressbar showProgressbar={this.state.showProgressbar}/>
-              <SearchResults showResults={this.state.showResults} restaurantObj={this.state.restaurant}/>
+              {this.state.dataLoaded ? <SearchResults showResults={this.state.showResults} restaurantObj={this.state.restaurant}/> :
+              null}
 
               {/* showResults blir props i själva componenten (progressbar, jag har döpt dom här, skickar med ett värde )*/}
 
