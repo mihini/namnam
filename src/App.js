@@ -57,8 +57,6 @@ class App extends Component {
     let restaurantObj = restaurants[Math.floor(Math.random() * restaurants.length)];
     // console.log(restaurantObj);
 
-
-
     this.setState({
       showProgressbar: false,
       showResults: true

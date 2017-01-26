@@ -6,7 +6,6 @@ var Circle = ProgressBar.Circle;
 class Progressbar extends React.Component {
 
     constructor(props){
-          //* showResults blir props och har värdet false */}
         super(props);
 
         this.state = {
