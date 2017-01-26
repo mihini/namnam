@@ -28,7 +28,7 @@ class App extends Component {
 
   _getRestaurant(location) {
     this.setState({
-      showProgressbar: !this.state.showProgressbar
+      showProgressbar: true
     });
 
 
@@ -44,10 +44,17 @@ class App extends Component {
 
       }
     }).then(function(response){
-      appComponent.setState({
-        dataLoaded:true,
-        restaurant: appComponent._getRandomRestaurant(response)
-      });
+      // console.log(response);
+      // console.log(response.data.results.length);
+      if(response.data.results.length > 0){
+        appComponent.setState({
+          dataLoaded:true,
+          restaurant: appComponent._getRandomRestaurant(response)
+        });
+      }else{
+        alert('Det finns inga restauranger i närheten');
+      }
+
 
     });
   } // när vi har fått tillbaka resultatet så är laddningen klar och då sätter

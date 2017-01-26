@@ -5,8 +5,9 @@ class TextResult extends React.Component{
   render(){
     return(
       <div>
+        {/*console.log(this.props.restaurantObj)*/}
         <h3>{this.props.restaurantObj.name}</h3>
-        {/*{console.log(this.props.restaurantObj.name)}*/}
+
       </div>
 
     )

@@ -18,7 +18,7 @@ class AddressInputForm extends React.Component {
         if (results.length > 0){
           resolve(location = results[0].geometry.location);
         } else{
-          reject('Finns ej restauranger i närheten');
+          reject('Hittar inte din adress');
         }
       });
     }).then(location=>{
