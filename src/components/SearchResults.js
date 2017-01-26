@@ -6,6 +6,7 @@ import MapResult from './MapResult';
 class SearchResults extends React.Component{
 
 
+
   render(){
 
     var show = {
@@ -15,6 +16,7 @@ class SearchResults extends React.Component{
     var hide = {
       display: 'none'
     }
+
 
     var showStyle = this.props.showResults ? show : hide;
 
