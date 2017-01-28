@@ -9,7 +9,6 @@ class Progressbar extends React.Component {
         super(props);
 
         this.state = {
-            progress: 1.0,
             text: "Hämtar käk"
         }
 
@@ -19,7 +18,7 @@ class Progressbar extends React.Component {
     render() {
         var options = {
             strokeWidth: 2,
-            duration: 2800
+            duration: this.props.duration
         };
 
 
@@ -53,10 +52,10 @@ class Progressbar extends React.Component {
             <div className="progressbar">
 
                 <Circle
-                    progress={this.state.progress}
+                    progress={this.props.progress}
                     text={this.state.text}
                     options={options}
-                    initialAnimate={true}
+                    initialAnimate={false}
                     containerStyle={containerStyle}
                     containerClassName={'.progressbar'}
                 />

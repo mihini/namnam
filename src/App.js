@@ -10,8 +10,8 @@ import Progressbar from './components/Progressbar';
 import SearchResults from './components/SearchResults';
 
 class App extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
 
     this._getRestaurant = this._getRestaurant.bind(this);
     this._getRandomRestaurant = this._getRandomRestaurant.bind(this);
@@ -20,20 +20,21 @@ class App extends Component {
       this.state = {
         dataLoaded: false, // to check if the restaurantObj is loaded.
         showProgressbar: false,
+        progressDuration: 800,
+        progress: 0.0,
         showResults: false,
         restaurant:{},
       };
   }
 
-
   _getRestaurant(location) {
     this.setState({
-      showProgressbar: true
+      showProgressbar: true,
+      progress: 1.0
     });
 
-
     const appComponent = this;
-    var lat =location.lat;//data from google api
+    var lat = location.lat;//data from google api
     var lng = location.lng;
     axios.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json', {
       params: {
@@ -44,17 +45,21 @@ class App extends Component {
 
       }
     }).then(function(response){
-      // console.log(response);
-      // console.log(response.data.results.length);
-      if(response.data.results.length > 0){
+      setTimeout(function(){
         appComponent.setState({
-          dataLoaded:true,
-          restaurant: appComponent._getRandomRestaurant(response)
+          progress: 0.0
         });
-      }else{
-        alert('Det finns inga restauranger i närheten');
-      }
-
+        // console.log(response);
+        // console.log(response.data.results.length);
+        if(response.data.results.length > 0){
+          appComponent.setState({
+            dataLoaded: true,
+            restaurant: appComponent._getRandomRestaurant(response)
+          });
+        }else{
+          alert('Det finns inga restauranger i närheten');
+        }
+      }, appComponent.state.progressDuration, response);
 
     });
   } // när vi har fått tillbaka resultatet så är laddningen klar och då sätter
@@ -81,7 +86,7 @@ class App extends Component {
           <div className="App">
               <Header/>
               <AddressInputForm getRestaurant={this._getRestaurant}/>
-              <Progressbar showProgressbar={this.state.showProgressbar}/>
+              <Progressbar showProgressbar={this.state.showProgressbar} progress={this.state.progress} duration={this.state.progressDuration}/>
               {this.state.dataLoaded ? <SearchResults showResults={this.state.showResults} restaurantObj={this.state.restaurant}/> :
               null}
 
