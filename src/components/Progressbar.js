@@ -9,7 +9,6 @@ class Progressbar extends React.Component {
         super(props);
 
         this.state = {
-            progress: 1.0,
             text: "Hämtar käk"
         }
 
@@ -19,7 +18,7 @@ class Progressbar extends React.Component {
     render() {
         var options = {
             strokeWidth: 2,
-            duration: 2800
+            duration: this.props.duration
         };
 
 
@@ -28,9 +27,23 @@ class Progressbar extends React.Component {
             height: '200px'
         };
 
+        var show = {
+          display: 'block'
+        }
+
+        var hide = {
+          display: 'none'
+        }
+
+        var showStyle = this.props.showProgressbar ? show : hide;
+
+        //använda värdet på props. kolla det och beroende på sant/falskt visa el gömma kan göra det med stil el class */}
+
+
+
         return (
 
-        <div>
+        <div style={showStyle}>
 
             <div className="fork">
                 <img src={require('../images/fork1.svg')} className="forkimg"  alt="fork"/>
@@ -39,10 +52,10 @@ class Progressbar extends React.Component {
             <div className="progressbar">
 
                 <Circle
-                    progress={this.state.progress}
+                    progress={this.props.progress}
                     text={this.state.text}
                     options={options}
-                    initialAnimate={true}
+                    initialAnimate={false}
                     containerStyle={containerStyle}
                     containerClassName={'.progressbar'}
                 />

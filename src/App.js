@@ -10,29 +10,35 @@ import Progressbar from './components/Progressbar';
 import SearchResults from './components/SearchResults';
 
 class App extends Component {
-  constructor() {
-    super();
+
+  constructor(props) {
+    super(props);
+
 
     this._getRestaurant = this._getRestaurant.bind(this);
     this._getRandomRestaurant = this._getRandomRestaurant.bind(this);
     // this.getGeoUserAddress = this.getGeoUserAddress.bind(this);
 
-    this.state = {
-      showProgressbar: false,
-      showResults: false,
-      restaurant:{}
-    };
-  }
 
+      this.state = {
+        dataLoaded: false, // to check if the restaurantObj is loaded.
+        showProgressbar: false,
+        progressDuration: 800,
+        progress: 0.0,
+        showResults: false,
+        restaurant:{},
+      };
+  }
 
   _getRestaurant(location) {
     this.setState({
-      showProgressbar: !this.state.showProgressbar
+      showProgressbar: true,
+      progress: 1.0
     });
 
-
     const appComponent = this;
-    var lat =location.lat;//data from google api
+    var lat = location.lat;//data from google api
+
     var lng = location.lng;
     axios.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json', {
       params: {
@@ -43,7 +49,23 @@ class App extends Component {
 
       }
     }).then(function(response){
-      appComponent.setState({restaurant: appComponent._getRandomRestaurant(response)});
+
+      setTimeout(function(){
+        appComponent.setState({
+          progress: 0.0
+        });
+        // console.log(response);
+        // console.log(response.data.results.length);
+        if(response.data.results.length > 0){
+          appComponent.setState({
+            dataLoaded: true,
+            restaurant: appComponent._getRandomRestaurant(response)
+          });
+        }else{
+          alert('Det finns inga restauranger i närheten');
+        }
+      }, appComponent.state.progressDuration, response);
+
 
     });
   } // när vi har fått tillbaka resultatet så är laddningen klar och då sätter
@@ -55,29 +77,34 @@ class App extends Component {
     // console.log(restaurants);
 
     let restaurantObj = restaurants[Math.floor(Math.random() * restaurants.length)];
-    // console.log(restaurantObj);
+
+    //console.log(restaurantObj);
 
     this.setState({
-      showResults: !this.state.showResults,
-      showProgressbar: this.state.showResults
+      showProgressbar: false,
+      showResults: true
+      //showResults: this.state.showResults &&  ? true : false;
+
     });
     return restaurantObj;
   }
 
   render() {
-    return (
-        <div className="App">
-          <Header/>
-          <AddressInputForm getRestaurant={this._getRestaurant}/>
-          <Progressbar showProgressbar={this.state.showProgressbar}/>
-          <SearchResults showResults={this.state.showResults} restaurantObj={this.state.restaurant}/>
 
-          {/* showResults blir props i själva componenten (progressbar, jag har döpt dom här, skickar med ett värde )*/}
+      return (
+          <div className="App">
+              <Header/>
+              <AddressInputForm getRestaurant={this._getRestaurant}/>
+              <Progressbar showProgressbar={this.state.showProgressbar} progress={this.state.progress} duration={this.state.progressDuration}/>
+              {this.state.dataLoaded ? <SearchResults showResults={this.state.showResults} restaurantObj={this.state.restaurant}/> :
+              null}
 
-          <Footer/>
+              {/* showResults blir props i själva componenten (progressbar, jag har döpt dom här, skickar med ett värde )*/}
 
-        </div>
-    );
+              <Footer/>
+
+          </div>
+      );
   }
 }
 
