@@ -31,7 +31,6 @@ describe(App, () => {
         expect(component.find(Progressbar)).toHaveLength(1);
     });
 
-
 });
 
 
