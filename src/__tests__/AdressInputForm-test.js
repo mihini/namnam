@@ -13,6 +13,7 @@ describe(AdressInputForm, () => {
     it('contains the form', () => {
         expect(component.find('input')).toHaveLength(1);
         expect(component.find('button')).toHaveLength(1);
+        expect(component.find('label')).toHaveLength(1);
     });
 
 });
