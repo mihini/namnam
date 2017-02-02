@@ -10,12 +10,15 @@ import Progressbar from './components/Progressbar';
 import SearchResults from './components/SearchResults';
 
 class App extends Component {
+
   constructor(props) {
     super(props);
+
 
     this._getRestaurant = this._getRestaurant.bind(this);
     this._getRandomRestaurant = this._getRandomRestaurant.bind(this);
     // this.getGeoUserAddress = this.getGeoUserAddress.bind(this);
+
 
       this.state = {
         dataLoaded: false, // to check if the restaurantObj is loaded.
@@ -35,6 +38,7 @@ class App extends Component {
 
     const appComponent = this;
     var lat = location.lat;//data from google api
+
     var lng = location.lng;
     axios.get('https://maps.googleapis.com/maps/api/place/nearbysearch/json', {
       params: {
@@ -45,6 +49,7 @@ class App extends Component {
 
       }
     }).then(function(response){
+
       setTimeout(function(){
         appComponent.setState({
           progress: 0.0
@@ -61,6 +66,7 @@ class App extends Component {
         }
       }, appComponent.state.progressDuration, response);
 
+
     });
   } // när vi har fått tillbaka resultatet så är laddningen klar och då sätter
 
@@ -71,17 +77,20 @@ class App extends Component {
     // console.log(restaurants);
 
     let restaurantObj = restaurants[Math.floor(Math.random() * restaurants.length)];
+
     //console.log(restaurantObj);
 
     this.setState({
       showProgressbar: false,
       showResults: true
       //showResults: this.state.showResults &&  ? true : false;
+
     });
     return restaurantObj;
   }
 
   render() {
+
       return (
           <div className="App">
               <Header/>

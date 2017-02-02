@@ -1,14 +1,15 @@
 .searchbar-form h1 {
-    font-size: 50px;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 30px;
+    font-family: 'Roboto', sans-serif;
 }
 
 input{
     border: 2px solid pink;
-    height: 50px;
+    height: 55px;
     width:80%;
     border-radius: 12px;
     font-size: 20px;
+    font-family: 'Roboto', sans-serif;
 }
 
 button{
@@ -18,6 +19,7 @@ button{
     background-color: white;
     box-shadow: none;
     border: none;
+    font-family: 'Roboto', sans-serif;
 }
 
 .headertext{

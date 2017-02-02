@@ -1,0 +1,15 @@
+@font-face {
+    font-family: 'Coiny';
+    font-style: normal;
+    font-weight: 400;
+    src: url(../fonts/Coiny/Coiny-Regular.ttf);
+    src: local('Coiny'), local('Coiny');
+}
+
+@font-face {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    src: url(../fonts/Roboto/Roboto-Regular.ttf);
+    src: local('Roboto'), local('Roboto');
+}
