@@ -5,6 +5,9 @@ import App from '../App';
 import AddressInputForm from '../components/AddressInputForm'
 import sinon from 'sinon';
 
+import axios from 'axios';
+import MockAdapter from 'axios-mock-adapter';
+
 test('test', () => {
   expect(true).toBe(true);
 })
@@ -27,7 +30,48 @@ describe('<AddressInputForm />', () => {
     expect(click.calledOnce).toBe(true);
   });
 
+  var mock = new MockAdapter(axios);
+
+  // Mock any GET request to /users
+  // arguments for reply are (status, data, headers)
+  mock.onGet('https://maps.googleapis.com/maps/api/geocode/json').reply(200, {
+    params: [
+      { address: 'Årstavägen 83' }
+    ]
+  });
+
+  axios.get('/users')
+    .then(function(response) {
+      console.log(response.data);
+    });
+
 });
+
+
+
+
+
+
+
+/*
+
+it('Should return data from response', (done) => {
+  let mockAdapter = new MockAdapter(axios);
+
+   mockAdapter.onGet('https://maps.googleapis.com/maps/api/geocode/json').reply(200, {
+     params: {
+       address: ['Årstavägen 83']
+     }
+   });
+
+   setTimeout(() => {
+      expect(response).to.be.equal('Årstavägen 83');
+   }, 0)
+});
+*/
+
+
+
 
 //   // test('get response from api when geoUserAddress function is called', () =>{
 //   //   const response = component.find(location);
