@@ -5,10 +5,6 @@ import App from '../App';
 import AddressInputForm from '../components/AddressInputForm'
 import sinon from 'sinon';
 
-test('test', () => {
-  expect(true).toBe(true);
-})
-//
 describe('<AddressInputForm />', () => {
   const click = sinon.spy(AddressInputForm.prototype, "_getGeoUserAddress");
 
