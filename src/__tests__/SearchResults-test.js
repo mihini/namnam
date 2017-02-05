@@ -16,4 +16,8 @@ describe('SearchResult', () => {
         expect(component.find(TextResult)).toHaveLength(0);
     });
 
+    it('contains the form', () => {
+        expect(component.find('div')).toHaveLength(1);
+    });
+
 });
