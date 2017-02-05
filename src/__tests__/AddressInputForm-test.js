@@ -40,15 +40,12 @@ describe('<AddressInputForm />', () => {
     ]
   });
 
-  axios.get('/users')
+  axios.get('https://maps.googleapis.com/maps/api/geocode/json')
     .then(function(response) {
       console.log(response.data);
     });
 
 });
-
-
-
 
 
 
