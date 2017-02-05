@@ -11,8 +11,8 @@ import SearchResults from './components/SearchResults';
 
 class App extends Component {
 
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
 
 
     this._getRestaurant = this._getRestaurant.bind(this);
@@ -72,13 +72,8 @@ class App extends Component {
 
 
   _getRandomRestaurant(response){
-
     let restaurants = response.data.results;
-    // console.log(restaurants);
-
     let restaurantObj = restaurants[Math.floor(Math.random() * restaurants.length)];
-
-    //console.log(restaurantObj);
 
     this.setState({
       showProgressbar: false,

@@ -8,10 +8,7 @@ import sinon from 'sinon';
 import axios from 'axios';
 import MockAdapter from 'axios-mock-adapter';
 
-test('test', () => {
-  expect(true).toBe(true);
-})
-//
+
 describe('<AddressInputForm />', () => {
   const click = sinon.spy(AddressInputForm.prototype, "_getGeoUserAddress");
 
