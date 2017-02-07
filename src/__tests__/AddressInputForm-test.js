@@ -41,6 +41,7 @@ describe('<AddressInputForm />', () => {
     .then(function(response) {
       console.log(response.data);
     });
+    
 
 });
 
